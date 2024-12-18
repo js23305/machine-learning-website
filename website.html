@@ -74,6 +74,20 @@
         <p>&copy; 2024 Machine Learning Concepts</p>
     </footer>
 
+   <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event){
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email'.value);
+            let password = document.getElementById('password'.value);
+
+            if (!name || !email || !password){
+                alert('Please fill all fields')
+                event.preventDefault();
+            }
+
+        });
+   </script>
+
 
 
 
