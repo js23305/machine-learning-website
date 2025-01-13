@@ -56,20 +56,47 @@
     </footer>
 
    <script>
-        document.getElementById('newid-form').addEventListener('submit', function(event){
+        // Check if the user has already submitted the form
+        if (localStorage.getItem('formSubmitted') === 'true') {
+            enableNavigation();
+        }
+
+        // Event listener for form submission
+        document.getElementById('newid-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission to navigate away
+
             let name = document.getElementById('name').value;
-            let email = document.getElementById('email'.value);
+            let email = document.getElementById('email').value;
 
-            if (!name || !email){
-                alert('Please fill all fields')
-                event.preventDefault();
+            // Check if name and email are filled
+            if (!name || !email) {
+                alert('Please fill all fields');
+            } else {
+                // Store the form submission status in localStorage
+                localStorage.setItem('formSubmitted', 'true');
+                enableNavigation(); // Enable navigation after form submission
             }
-
         });
-   </script>
 
+        // Enable navigation links after form submission
+        function enableNavigation() {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // Allow navigation if form is submitted
+                    if (localStorage.getItem('formSubmitted') === 'true') {
+                        return true; // Allow navigation
+                    }
+                    event.preventDefault(); // Prevent navigation
+                    alert('Please fill in your name and email first!');
+                });
+            });
+        }
+    </script>
 
+</body>
 
+</html>
 
 </body>
 
