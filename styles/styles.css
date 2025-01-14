@@ -6,6 +6,9 @@ body, html {
     color: #fff;
     background-color: #1a1a2e;
     line-height: 1.6;
+    min-height: 100%; /* Ensure the body and html fill the viewport */
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
 /* Background Image and Styling */
@@ -56,6 +59,8 @@ nav ul li a.active{
     text-align: center;
     margin-top: 50px;
     padding: 0 20px;
+    flex: 1; /* Allow the content area to stretch and push footer down */
+
 }
 
 h1 {
@@ -102,16 +107,10 @@ input[type="password"] {
     box-shadow: inset 0 0 5px #333;
     background-color: #2a2a3b;
     color: #fff;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
     outline: none;
     border: 1px solid #4CAF50;
-    background-color: #333;
-    color: #fff;
 }
+
 
 input::placeholder{
     color: #aaa;
@@ -136,7 +135,6 @@ button:hover {
 
 /* Footer styling */
 footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -147,14 +145,9 @@ footer {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
 }
 
-footer a{
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-footer a:hover{
-    text-decoration: underline;
+/* Add extra space if needed */
+.content {
+    padding-bottom: 50px; /* Space between content and footer */
 }
 
 /* Responsive design */
